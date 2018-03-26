@@ -25,7 +25,9 @@ docker-compose run web python manage.py makemigrations
 docker-compose run web python manage.py migrate
 
 # Install python dependencies
-docker-compose run web pip install <dependencie>
+# access to docker container web and run:
+pip install <dependencies>
+pip freeze -l > requirements.txt
 
 # Access to container in execution
 docker exec -it <id_container> /bin/bash
