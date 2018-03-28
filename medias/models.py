@@ -14,9 +14,3 @@ class Media(models.Model):
 
 	def __str__(self):
 		return str(self.user.pk)
-
-	def media_url(self):
-		if self.media:
-			return self.media
-		else:
-			return 'http://americanconstruction.net/wp-content/uploads/2015/10/upload-empty.png'
