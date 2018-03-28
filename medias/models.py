@@ -1,13 +1,12 @@
 from django.db import models
 from accounts.models import Account
-from utils.storage import content_file_name
 import uuid
 # Create your models here.
 
 class Media(models.Model):
 	uuid = models.UUIDField(default=uuid.uuid4, editable=False)
 	user = models.ForeignKey(Account, verbose_name='Usuarios', on_delete=models.CASCADE)
-	media = models.FileField('media', blank=False, upload_to=content_file_name)
+	media = models.URLField('media', max_length=500, blank=False)
 	title = models.CharField('Titulo', blank=True, null=True, max_length=100)
 	description = models.TextField('Descripcion', blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
@@ -18,6 +17,6 @@ class Media(models.Model):
 
 	def media_url(self):
 		if self.media:
-			return self.media.url
+			return self.media
 		else:
 			return 'http://americanconstruction.net/wp-content/uploads/2015/10/upload-empty.png'
