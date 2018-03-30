@@ -34,4 +34,5 @@ router.register(r'likes', LikeViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('data/account/', include('accounts.urls', namespace='account')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

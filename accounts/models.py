@@ -23,8 +23,8 @@ class AccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser, PermissionsMixin):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
-    first_name = models.CharField('nombre', max_length=50, null=False, blank=False)
-    last_name = models.CharField('apellido', max_length=50, null=False, blank=False)
+    first_name = models.CharField('nombre', max_length=50, null=True, blank=True)
+    last_name = models.CharField('apellido', max_length=50, null=True, blank=True)
     date_of_birth = models.DateField('Fecha de Naciemiento', null=True, blank=True)
     email = models.EmailField('correo electronico', null=True, blank=True)
     username = models.CharField('username',
@@ -44,7 +44,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
     def get_full_name(self):
         return '{1} {2}'.format(self.name, self.last_name)
-    
+
     def get_short_name(self):
         return self.username
 
