@@ -13,7 +13,7 @@ class LoginUserByToken(MiddlewareMixin):
     """
     def process_request(self, request):
         if not request.user.is_authenticated:
-            token = request.GET.get('token_id', request.POST.get('token_id', None))
+            token = request.GET.get('token_id', None)
             if token:
                 try:
                     token = Token.objects.get(key=token)
