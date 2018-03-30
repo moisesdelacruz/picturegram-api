@@ -55,7 +55,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'accounts.middleware.DisableCSRF',
     'accounts.middleware.LoginUserByToken',
-    # 'accounts.middleware.PrivateCache',
 ]
 
 ROOT_URLCONF = 'selfiegram_api.urls'

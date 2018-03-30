@@ -21,7 +21,6 @@ def login(request):
     """View login"""
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
-    print (username, password, '----------------------------')
 
     try:
         User.objects.get(username=username)
